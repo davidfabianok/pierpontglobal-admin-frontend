@@ -2,7 +2,7 @@ import React from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
-import {Typography} from '@material-ui/core';
+// import {Typography} from '@material-ui/core';
 
 const styles = theme => ({
     root      : {
@@ -17,8 +17,8 @@ const styles = theme => ({
     },
     logo      : {},
     logoIcon  : {
-        width     : 80,
-        height    : 60,
+        width     : 24,
+        height    : 24,
         transition: theme.transitions.create(['width', 'height'], {
             duration: theme.transitions.duration.shortest,
             easing  : theme.transitions.easing.easeInOut
@@ -35,20 +35,20 @@ function MainNavbarHeader({classes})
     return (
         <div className={classes.root}>
             <div className={classNames(classes.logo, "flex items-center")}>
-                <img className={classNames(classes.logoIcon, "logo-icon")} src="assets/images/logos/logo 4a - White.png" alt="logo"/>
-                <Typography className="text-16 ml-8 font-light logo-text" color="inherit">Pierpont Global</Typography>
-                {/* <div className={classNames(classes.reactBadge, "react-badge flex items-center ml-12 mr-8 py-4 px-8 rounded")}>
+                {/* <img className={classNames(classes.logoIcon, "logo-icon")} src="assets/images/logos/Logo 4a - White.png" alt="logo"/>
+                <Typography className="text-16 ml-8 font-light logo-text" color="inherit"></Typography> */}
+                <div className={classNames(classes.reactBadge, "react-badge flex items-center ml-12 mr-8 py-4 px-8 rounded")}>
                     <img
                         className="react-logo"
-                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"
+                        src="assets/images/logos/Logo 4a - White.png"
                         alt="react"
-                        width="16"
+                        width="70"
                     />
-                    <span className="react-text text-12 ml-4">React</span>
-                </div> */}
+                    <span className="react-text text-14 ml-4">Pierpont Global</span>
+                </div>
             </div>
         </div>
     );
-};
+}
 
 export default withStyles(styles, {withTheme: true})(withRouter(MainNavbarHeader));
