@@ -84,5 +84,4 @@ function MainFooter({classes})
         </div>
     );
 }
-
 export default withStyles(styles, {withTheme: true})(MainFooter);
