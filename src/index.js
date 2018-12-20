@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import history from './history';
 import './react-table-defaults';
 import './styles/index.css';
+import './fake-db/fake-db'
 import JssProvider from 'react-jss/lib/JssProvider';
 import {create} from 'jss';
 import {createGenerateClassName, jssPreset} from '@material-ui/core/styles';
@@ -16,11 +17,12 @@ import {FuseLayout, FuseTheme, FuseAuthorization} from '@fuse';
 import MainToolbar from './main/MainToolbar';
 import MainNavbarContent from './main/MainNavbarContent';
 import MainNavbarHeader from './main/MainNavbarHeader';
-import MainFooter from './main/MainFooter';
+// import MainFooter from './main/MainFooter';
 import jssExtend from 'jss-extend'
 import QuickPanel from 'main/quickPanel/QuickPanel';
 import store from 'store';
 import SettingsPanel from 'main/SettingsPanel';
+// import ChatPanel from 'main/chatPanel/ChatPanel';
 import {Auth} from 'auth';
 
 const jss = create({
@@ -49,17 +51,18 @@ ReactDOM.render(
                                 navbarContent={
                                     <MainNavbarContent/>
                                 }
-                                footer={
-                                    <MainFooter/>
-                                }
+                                // footer={
+                                //     // <MainFooter/>
+                                // }
                                 rightSidePanel={
                                     <React.Fragment>
+                                        {/* <ChatPanel/> */}
                                         <QuickPanel/>
                                     </React.Fragment>
                                 }
-                                contentWrapper={
-                                    <SettingsPanel/>
-                                }
+                                // contentWrapper={
+                                //     <SettingsPanel/>
+                                // }
                             >
                             </FuseLayout>
                         </FuseTheme>
@@ -71,5 +74,3 @@ ReactDOM.render(
     , document.getElementById('root'));
 
 registerServiceWorker();
-
-

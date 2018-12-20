@@ -50,7 +50,7 @@ function MainNavbar({classes, navigation, layoutStyle, user})
                 <Avatar
                     className={classNames(classes.avatar, "avatar")}
                     alt="user photo"
-                    src={user.data.photoURL && user.data.photoURL !== '' ? user.data.photoURL : "assets/images/avatars/vincent.jpg"}
+                    src={user.data.photoURL && user.data.photoURL !== '' ? user.data.photoURL : "assets/images/avatars/profile.jpg"}
                 />
             </AppBar>
         );

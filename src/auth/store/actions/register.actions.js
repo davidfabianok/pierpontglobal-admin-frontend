@@ -6,10 +6,13 @@ import * as Actions from 'store/actions';
 export const REGISTER_ERROR = 'REGISTER_ERROR';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 
-export function submitRegister({displayName, password, email})
+export function submitRegister({username, first_name, last_name, phone_number, password, email})
 {
-    const request = axios.post('/api/auth/register', {
-        displayName,
+    const request = axios.post('http://10.0.0.13:3000/api/v1/users', {
+        username,
+        first_name,
+        last_name,
+        phone_number,
         password,
         email
     });

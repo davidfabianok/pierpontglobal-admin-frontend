@@ -9,7 +9,6 @@ https://github.com/zalmoxisus/redux-devtools-instrument/pull/19#issuecomment-400
  */
 reduxModule.__DO_NOT_USE__ActionTypes.REPLACE = '@@redux/INIT';
 
-
 const composeEnhancers =
     process.env.NODE_ENV !== 'production' &&
     typeof window === 'object' &&
