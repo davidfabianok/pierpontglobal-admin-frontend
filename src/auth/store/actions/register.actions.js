@@ -8,7 +8,7 @@ export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 
 export function submitRegister({username, first_name, last_name, phone_number, password, email})
 {
-    const request = axios.post('http://10.0.0.13:3000/api/v1/users', {
+    const request = axios.post('https://api.pierpontglobal.com/api/v1/users', {
         username,
         first_name,
         last_name,

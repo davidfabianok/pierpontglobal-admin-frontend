@@ -4,18 +4,18 @@ import {connect} from 'react-redux';
 import {withRouter, Link, Button} from 'react-router-dom'
 import * as Actions from './store/actions'
 import {bindActionCreators} from 'redux';
-// import {Typography} from '@material-ui/core';
+import {Typography} from '@material-ui/core';
 import {Chart} from 'react-chartjs-2';
 import Widget1 from './widgets/Widget1';
-// import Widget2 from './widgets/Widget2';
-// import Widget3 from './widgets/Widget3';
-// import Widget4 from './widgets/Widget4';
-// import Widget5 from './widgets/Widget5';
-// // import Widget6 from './widgets/Widget6';
-// import Widget7 from './widgets/Widget7';
-// import Widget8 from './widgets/Widget8';
-// // import Widget9 from './widgets/Widget9';
-// import {FuseAnimate} from '@fuse';
+import Widget2 from './widgets/Widget2';
+import Widget3 from './widgets/Widget3';
+import Widget4 from './widgets/Widget4';
+import Widget5 from './widgets/Widget5';
+// import Widget6 from './widgets/Widget6';
+import Widget7 from './widgets/Widget7';
+import Widget8 from './widgets/Widget8';
+// import Widget9 from './widgets/Widget9';
+import {FuseAnimate} from '@fuse';
 import withReducer from 'store/withReducer';
 import reducer from './store/reducers';
 
@@ -112,7 +112,7 @@ class AnalyticsDashboardApp extends Component {
                     <Link className="font-medium mt-8" to="/">Back to Dashboard</Link>
                 </div>
 
-                {/* <FuseAnimate animation="transition.slideUpIn" delay={200}>
+                {<FuseAnimate animation="transition.slideUpIn" delay={200}>
 
                     <div className="flex flex-col md:flex-row sm:p-16">
 
@@ -155,9 +155,9 @@ class AnalyticsDashboardApp extends Component {
                                 </Typography>
                             </FuseAnimate> 
 
-                            <div className="widget w-full p-16 pb-32">
+                            {/* <div className="widget w-full p-16 pb-32">
                                 <Widget6 data={widgets.widget6}/>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="flex flex-wrap w-full md:w-320 pt-16">
@@ -193,13 +193,13 @@ class AnalyticsDashboardApp extends Component {
                                         What are your top campaigns?
                                     </Typography>
                                 </FuseAnimate>
-                                <div className="widget w-full p-16">
+                                {/* <div className="widget w-full p-16">
                                     <Widget9 data={widgets.widget9}/>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
-                </FuseAnimate> */}
+                </FuseAnimate>}
             </div>
         )
     };

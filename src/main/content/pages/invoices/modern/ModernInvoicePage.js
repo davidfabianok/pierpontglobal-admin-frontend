@@ -72,7 +72,7 @@ class ModernInvoicePage extends Component {
 
                                         <div className="flex items-center mb-80 print:mb-0">
 
-                                            <img className="w-160 print:w-60" src="assets/images/logos/fuse.svg" alt="logo"/>
+                                            <img className="w-160 print:w-60" src="assets/images/logos/Logo 2a - Dark Grey.png" alt="logo"/>
 
                                             <div className={classNames(classes.divider, "mx-48 print:mx-16")}/>
 
@@ -107,7 +107,7 @@ class ModernInvoicePage extends Component {
                                         </div>
 
                                         <div className="flex items-center">
-                                            <div className="flex justify-end items-center w-160 print:w-60">
+                                            <div className="flex justify-center items-center w-160 print:w-60">
                                                 <Typography variant="h5" className="font-light" color="textSecondary">CLIENT</Typography>
                                             </div>
 
@@ -301,7 +301,7 @@ class ModernInvoicePage extends Component {
                                     <div className="flex">
 
                                         <div className="flex-no-shrink mr-24">
-                                            <img className="w-32" src="assets/images/logos/fuse.svg" alt="logo"/>
+                                            <img className="w-72" src="assets/images/logos/Logo 2a - Dark Grey.png" alt="logo"/>
                                         </div>
 
                                         <Typography className="font-medium mb-64" variant="caption" color="textSecondary">
