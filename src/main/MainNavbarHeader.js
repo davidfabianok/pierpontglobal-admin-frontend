@@ -18,7 +18,7 @@ const styles = theme => ({
     logo      : {},
     logoIcon  : {
         width     : 24, 
-        height    : 24,
+        height    : 24, 
         transition: theme.transitions.create(['width', 'height'], {
             duration: theme.transitions.duration.shortest,
             easing  : theme.transitions.easing.easeInOut
