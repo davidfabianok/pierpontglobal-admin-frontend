@@ -77,7 +77,7 @@ class RegularLoginTab extends Component {
                             minLength: 4
                         }}
                         validationErrors={{
-                            minLength: 'Min character length is 4'
+                            minLength: 'Min character length is 4' 
                         }}
                         InputProps={{
                             endAdornment: <InputAdornment position="end"><Icon className="text-20" color="action">email</Icon></InputAdornment>

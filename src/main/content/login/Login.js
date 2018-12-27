@@ -48,7 +48,7 @@ class Login extends Component {
 
                     <FuseAnimate animation="transition.slideUpIn" delay={300}>
                         <Typography variant="h3" color="inherit" className="font-light">
-                            Welcome to Pierpont Globlal   
+                            Welcome to Pierpont Global   
                         </Typography>
                     </FuseAnimate>
 

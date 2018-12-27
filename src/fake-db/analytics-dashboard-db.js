@@ -3,7 +3,7 @@ import mock from './mock';
 const analyticsDashboardAppDB = {
     widgets: {
         widget1: {
-            chartType: 'line',
+            chartType: 'bar',
             datasets : {
                 '2015': [
                     {
