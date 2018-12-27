@@ -27,7 +27,7 @@ const styles = theme => ({
 
 class Register extends Component {
     state = {
-        tabValue: 2
+        tabValue: 0
     };
 
     handleTabChange = (event, value) => {
@@ -130,7 +130,7 @@ class Register extends Component {
 
                             {/* {tabValue === 0 && <FirebaseRegisterTab/>}
                             {tabValue === 1 && <Auth0RegisterTab/>} */}
-                            {tabValue === 2 && <RegularRegisterTab/>}
+                            {tabValue === 0 && <RegularRegisterTab/>}
 
                             <div className="flex flex-col items-center justify-center pt-32 pb-24">
                                 <span className="font-medium">Already have an account?</span>

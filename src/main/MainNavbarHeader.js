@@ -17,7 +17,7 @@ const styles = theme => ({
     },
     logo      : {},
     logoIcon  : {
-        width     : 24,
+        width     : 24, 
         height    : 24,
         transition: theme.transitions.create(['width', 'height'], {
             duration: theme.transitions.duration.shortest,
@@ -30,6 +30,7 @@ const styles = theme => ({
     }
 });
 
+
 function MainNavbarHeader({classes})
 {
     return (
@@ -41,7 +42,7 @@ function MainNavbarHeader({classes})
                     <img
                         className="react-logo"
                         src="assets/images/logos/Logo 4a - White.png"
-                        alt="react"
+                        alt="Pierpont Global"
                         width="70"
                     />
                     <span className="react-text text-14 ml-4">Pierpont Global</span>

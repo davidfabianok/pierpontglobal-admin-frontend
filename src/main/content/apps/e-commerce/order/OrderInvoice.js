@@ -112,7 +112,7 @@ class OrderInvoice extends Component {
 
                                 <div className={classNames(classes.seller, "flex items-center p-16")}>
 
-                                    <img className="w-80" src="assets/images/logos/fuse.svg" alt="logo"/>
+                                    <img className="w-80" src="assets/images/logos/Logo 4a - White.png" alt="logo"/>
 
                                     <div className={classNames(classes.divider, "divider ml-8 mr-16 h-96")}/>
 
@@ -228,7 +228,7 @@ class OrderInvoice extends Component {
                                 <div className="flex">
 
                                     <div className="flex-no-shrink mr-24">
-                                        <img className="w-32" src="assets/images/logos/fuse.svg" alt="logo"/>
+                                        <img className="w-72" src="assets/images/logos/Logo 2a - Dark Grey.png" alt="logo"/>
                                     </div>
 
                                     <Typography className="font-medium mb-64" variant="caption" color="textSecondary">

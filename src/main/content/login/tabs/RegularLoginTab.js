@@ -34,7 +34,7 @@ class RegularLoginTab extends Component {
 
     componentDidUpdate(prevProps, prevState)
     {
-        if ( this.props.login.error && (this.props.login.error.email || this.props.login.error.password) )
+        if ( this.props.login.error && (this.props.login.error.username || this.props.login.error.password) )
         {
             this.form.updateInputsWithError({
                 ...this.props.login.error
@@ -70,14 +70,14 @@ class RegularLoginTab extends Component {
                 >
                     <TextFieldFormsy
                         className="mb-32"
-                        type="text"
-                        name="email"
-                        label="Username/Email"
+                        type="username"
+                        name="username"
+                        label="Username"
                         validations={{
                             minLength: 4
                         }}
                         validationErrors={{
-                            minLength: 'Min character length is 4'
+                            minLength: 'Min character length is 4' 
                         }}
                         InputProps={{
                             endAdornment: <InputAdornment position="end"><Icon className="text-20" color="action">email</Icon></InputAdornment>

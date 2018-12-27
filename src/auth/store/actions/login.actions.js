@@ -6,13 +6,12 @@ import * as Actions from 'store/actions';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
-export function submitLogin({email, password})
+export function submitLogin({username, password})
 {
-    const request = axios.get('/api/auth', {
-        data: {
-            email,
-            password
-        }
+    const request = axios.post('https://api.pierpontglobal.com/oauth/token', {
+            username,
+            password,
+            grant_type: "password"
     });
     return (dispatch) =>
         request.then((response) => {
