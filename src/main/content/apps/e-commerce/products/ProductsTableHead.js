@@ -21,43 +21,71 @@ const rows = [
         id            : 'image',
         numeric       : false,
         disablePadding: true,
-        label         : '',
+        label         : 'Image',
         sort          : false
     },
     {
-        id            : 'name',
+        id            : 'make',
         numeric       : false,
         disablePadding: false,
-        label         : 'Name',
+        label         : 'CarMake',
         sort          : true
     },
     {
-        id            : 'categories',
+        id            : 'model',
         numeric       : false,
         disablePadding: false,
-        label         : 'Category',
+        label         : 'CarModel',
+        sort          : true
+    },
+    // {
+    //     id            : 'name',
+    //     numeric       : false,
+    //     disablePadding: false,
+    //     label         : 'Trim',
+    //     sort          : true
+    // },
+    {
+        id            : 'year',
+        numeric       : false,
+        disablePadding: false,
+        label         : 'Year',
         sort          : true
     },
     {
-        id            : 'priceTaxIncl',
+        id            : 'odo',
         numeric       : true,
         disablePadding: false,
-        label         : 'Price',
+        label         : 'Odometer',
         sort          : true
     },
     {
-        id            : 'quantity',
+        id            : 'color',
         numeric       : true,
         disablePadding: false,
-        label         : 'Quantity',
-        sort          : true
+        label         : 'Ext-Color',
+        sort          : false
     },
+    // {
+    //     id            : 'quantity',
+    //     numeric       : true,
+    //     disablePadding: false,
+    //     label         : 'Int-Color',
+    //     sort          : true
+    // },
     {
         id            : 'active',
         numeric       : true,
         disablePadding: false,
-        label         : 'Active',
-        sort          : true
+        label         : 'Engine',
+        sort          : false
+    },
+    {
+        id            : 'name',
+        numeric       : true,
+        disablePadding: false,
+        label         : 'VIN',
+        sort          : false
     }
 ];
 
@@ -102,7 +130,7 @@ class ProductsTableHead extends React.Component {
 
         return (
             <TableHead>
-                <TableRow className="h-64">
+                <TableRow className="h-64 justify-center">
                     <TableCell padding="checkbox" className="relative pl-4 sm:pl-12">
                         <Checkbox
                             indeterminate={numSelected > 0 && numSelected < rowCount}

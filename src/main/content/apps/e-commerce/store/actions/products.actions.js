@@ -5,7 +5,7 @@ export const SET_PRODUCTS_SEARCH_TEXT = '[E-COMMERCE APP] SET PRODUCTS SEARCH TE
 
 export function getProducts()
 {
-    const request = axios.get('/api/e-commerce-app/products');
+    const request = axios.get('https://api.pierpontglobal.com/api/v1/car/latest?limit=50&offset=50');
 
     return (dispatch) =>
         request.then((response) =>

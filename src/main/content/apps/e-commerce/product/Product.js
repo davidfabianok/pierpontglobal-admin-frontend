@@ -99,19 +99,21 @@ class Product extends Component {
         this.setState({form: _.set({...this.state.form}, 'featuredImageId', id)});
     };
 
-    canBeSubmitted()
-    {
-        const {name} = this.state.form;
-        return (
-            name.length > 0 &&
-            !_.isEqual(this.props.product.data, this.state.form)
-        );
-    }
+    // canBeSubmitted()
+    // {
+    //     const {name} = this.state.form;
+    //     return (
+    //         name.length > 0 &&
+    //         !_.isEqual(this.props.product.data, this.state.form)
+    //     );
+    // }
 
     render()
     {
         const {classes, saveProduct} = this.props;
         const {tabValue, form} = this.state;
+
+        console.log(form)
 
         return (
             <FusePageCarded
@@ -133,13 +135,13 @@ class Product extends Component {
                                 </FuseAnimate>
 
                                 <div className="flex items-center max-w-full">
-                                    <FuseAnimate animation="transition.expandIn" delay={300}>
+                                    {/* <FuseAnimate animation="transition.expandIn" delay={300}>
                                         {form.images.length > 0 ? (
                                             <img className="w-32 sm:w-48 mr-8 sm:mr-16 rounded" src={_.find(form.images, {id: form.featuredImageId}).url} alt={form.name}/>
                                         ) : (
                                             <img className="w-32 sm:w-48 mr-8 sm:mr-16 rounded" src="assets/images/ecommerce/product-image-placeholder.png" alt={form.name}/>
                                         )}
-                                    </FuseAnimate>
+                                    </FuseAnimate> */}
                                     <div className="flex flex-col min-w-0">
                                         <FuseAnimate animation="transition.slideLeftIn" delay={300}>
                                             <Typography className="text-16 sm:text-20 truncate">
@@ -152,7 +154,7 @@ class Product extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <FuseAnimate animation="transition.slideRightIn" delay={300}>
+                            {/* <FuseAnimate animation="transition.slideRightIn" delay={300}>
                                 <Button
                                     className="whitespace-no-wrap"
                                     variant="contained"
@@ -161,7 +163,7 @@ class Product extends Component {
                                 >
                                     Save
                                 </Button>
-                            </FuseAnimate>
+                            </FuseAnimate> */}
                         </div>
                     )
                 }
@@ -193,11 +195,11 @@ class Product extends Component {
                                         className="mt-8 mb-16"
                                         error={form.name === ''}
                                         required
-                                        label="Name"
+                                        label="CarMake"
                                         autoFocus
                                         id="name"
                                         name="name"
-                                        value={form.name}
+                                        value={form.car_Make}
                                         onChange={this.handleChange}
                                         variant="outlined"
                                         fullWidth
@@ -217,45 +219,45 @@ class Product extends Component {
                                         fullWidth
                                     />
 
-                                    <FuseChipSelect
-                                        className="mt-8 mb-24"
-                                        value={
-                                            form.categories.map(item => ({
-                                                value: item,
-                                                label: item
-                                            }))
-                                        }
-                                        onChange={(value) => this.handleChipChange(value, 'categories')}
-                                        placeholder="Select multiple categories"
-                                        textFieldProps={{
-                                            label          : 'Categories',
-                                            InputLabelProps: {
-                                                shrink: true
-                                            },
-                                            variant        : 'outlined'
-                                        }}
-                                        isMulti
-                                    />
+                                        {/* <FuseChipSelect
+                                            className="mt-8 mb-24"
+                                            value={
+                                                form.categories.map(item => ({
+                                                    value: item,
+                                                    label: item
+                                                }))
+                                            }
+                                            onChange={(value) => this.handleChipChange(value, 'categories')}
+                                            placeholder="Select multiple categories"
+                                            textFieldProps={{
+                                                label          : 'Categories',
+                                                InputLabelProps: {
+                                                    shrink: true
+                                                },
+                                                variant        : 'outlined'
+                                            }}
+                                            isMulti
+                                        />
 
-                                    <FuseChipSelect
-                                        className="mt-8 mb-16"
-                                        value={
-                                            form.tags.map(item => ({
-                                                value: item,
-                                                label: item
-                                            }))
-                                        }
-                                        onChange={(value) => this.handleChipChange(value, 'tags')}
-                                        placeholder="Select multiple tags"
-                                        textFieldProps={{
-                                            label          : 'Tags',
-                                            InputLabelProps: {
-                                                shrink: true
-                                            },
-                                            variant        : 'outlined'
-                                        }}
-                                        isMulti
-                                    />
+                                        <FuseChipSelect
+                                            className="mt-8 mb-16"
+                                            value={
+                                                form.tags.map(item => ({
+                                                    value: item,
+                                                    label: item
+                                                }))
+                                            }
+                                            onChange={(value) => this.handleChipChange(value, 'tags')}
+                                            placeholder="Select multiple tags"
+                                            textFieldProps={{
+                                                label          : 'Tags',
+                                                InputLabelProps: {
+                                                    shrink: true
+                                                },
+                                                variant        : 'outlined'
+                                            }}
+                                            isMulti
+                                        /> */}
                                 </div>
                             )}
                             {tabValue === 1 && (
