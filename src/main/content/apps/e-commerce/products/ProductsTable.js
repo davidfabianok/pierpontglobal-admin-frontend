@@ -42,7 +42,7 @@ class ProductsTable extends Component {
         {
             return data;
         }
-        return _.filter(data, item => item.name.toLowerCase().includes(searchText.toLowerCase()));
+        return _.filter(data, item => item.name.toLowerCase(data).includes(searchText.toLowerCase(data)));
     };
 
     handleRequestSort = (event, property) => {
@@ -114,10 +114,10 @@ class ProductsTable extends Component {
     render()
     {
         const {order, orderBy, selected, rowsPerPage, page, data} = this.state;
-
+        console.log(data)
         return (
             <div className="w-full flex flex-col">
-
+                
                 <FuseScrollbars className="flex-grow overflow-x-auto">
 
                     <Table className="min-w-xl" aria-labelledby="tableTitle">
@@ -130,7 +130,6 @@ class ProductsTable extends Component {
                             onRequestSort={this.handleRequestSort}
                             rowCount={data.length}
                         />
-
                         <TableBody>
                             {_.orderBy(data, [
                                 (o) => {
@@ -148,8 +147,8 @@ class ProductsTable extends Component {
                                 }
                             ], [order])
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                .map(n => {
-                                    const isSelected = this.isSelected(n.id);
+                                .map(data => {
+                                    const isSelected = this.isSelected(data.id);
                                     return (
                                         <TableRow
                                             className="h-64 cursor-pointer"
@@ -157,46 +156,67 @@ class ProductsTable extends Component {
                                             role="checkbox"
                                             aria-checked={isSelected}
                                             tabIndex={-1}
-                                            key={n.id}
+                                            key={data.id}
                                             selected={isSelected}
-                                            onClick={event => this.handleClick(n)}
+                                            onClick={event => this.handleClick(data)}
                                         >
                                             <TableCell className="w-48 pl-4 sm:pl-12" padding="checkbox">
                                                 <Checkbox
                                                     checked={isSelected}
                                                     onClick={event => event.stopPropagation()}
-                                                    onChange={event => this.handleCheck(event, n.id)}
+                                                    onChange={event => this.handleCheck(event, data.id)}
                                                 />
                                             </TableCell>
-
+                                            
                                             <TableCell className="w-52" component="th" scope="row" padding="none">
-                                                {n.images.length > 0 ? (
+                                                {/* {n.images.length > 0 ? (
                                                     <img className="w-full block rounded" src={_.find(n.images, {id: n.featuredImageId}).url} alt={n.name}/>
                                                 ) : (
                                                     <img className="w-full block rounded" src="assets/images/ecommerce/product-image-placeholder.png" alt={n.name}/>
-                                                )}
+                                                )} */}
                                             </TableCell>
 
                                             <TableCell component="th" scope="row">
-                                                {n.name}
+                                                {data.car_maker}
                                             </TableCell>
 
                                             <TableCell className="truncate" component="th" scope="row">
-                                                {n.categories.join(', ')}
+                                                {data.car_model}
+                                            </TableCell>
+
+                                            {/* <TableCell className="truncate" component="th" scope="row">
+                                                {data.trim}
+                                            </TableCell> */}
+
+                                            <TableCell component="th" scope="row" numeric>
+                                                {data.year}
+                                            </TableCell>
+
+                                            <TableCell component="th" scope="row" numeric>                                               
+                                                {data.odometer}
+                                                <spam> </spam>
+                                                {data.odometer_unit}
+                                                {/* <i className={classNames("inline-block w-8 h-8 rounded ml-8", data.quantity <= 5 && "bg-red", data.quantity > 5 && data.quantity <= 25 && "bg-orange", data.quantity > 25 && "bg-green")}/> */}
                                             </TableCell>
 
                                             <TableCell component="th" scope="row" numeric>
-                                                <span>$</span>
-                                                {n.priceTaxIncl}
+                                                {data.color_name_exterior}
+                                            </TableCell>
+
+                                            {/* <TableCell component="th" scope="row" numeric>
+                                                {data.color_name_interior}
+                                            </TableCell> */}
+
+                                            <TableCell component="th" scope="row" numeric>
+                                                {data.engine}
                                             </TableCell>
 
                                             <TableCell component="th" scope="row" numeric>
-                                                {n.quantity}
-                                                <i className={classNames("inline-block w-8 h-8 rounded ml-8", n.quantity <= 5 && "bg-red", n.quantity > 5 && n.quantity <= 25 && "bg-orange", n.quantity > 25 && "bg-green")}/>
+                                                {data.vin}
                                             </TableCell>
 
-                                            <TableCell component="th" scope="row" numeric>
-                                                {n.active ?
+                                            {/* <TableCell component="th" scope="row" numeric>
+                                                {data.active ?
                                                     (
                                                         <Icon className="text-green text-20">check_circle</Icon>
                                                     ) :
@@ -204,7 +224,7 @@ class ProductsTable extends Component {
                                                         <Icon className="text-red text-20">remove_circle</Icon>
                                                     )
                                                 }
-                                            </TableCell>
+                                            </TableCell> */}
                                         </TableRow>
                                     );
                                 })}

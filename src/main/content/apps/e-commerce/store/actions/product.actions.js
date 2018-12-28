@@ -7,7 +7,7 @@ export const SAVE_PRODUCT = '[E-COMMERCE APP] SAVE PRODUCT';
 
 export function getProduct(params)
 {
-    const request = axios.get('/api/e-commerce-app/product', {params});
+    const request = axios.get('https://api.pierpontglobal.com/api/v1/car/latest?limit=50&offset=50', {params});
 
     return (dispatch) =>
         request.then((response) =>
@@ -20,7 +20,7 @@ export function getProduct(params)
 
 export function saveProduct(data)
 {
-    const request = axios.post('/api/e-commerce-app/product/save', data);
+    const request = axios.post('https://api.pierpontglobal.com/e-commerce-app/product/save', data);
 
     return (dispatch) =>
         request.then((response) => {
