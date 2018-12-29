@@ -20,7 +20,7 @@ class ProductsTable extends Component {
         selected   : [],
         data       : this.props.products,
         page       : 0,
-        rowsPerPage: 10
+        rowsPerPage: 25
     };
 
     componentDidMount()
@@ -30,7 +30,7 @@ class ProductsTable extends Component {
 
     componentDidUpdate(prevProps, prevState)
     {
-        if ( !_.isEqual(this.props.products, prevProps.products) || !_.isEqual(this.props.searchText, prevProps.searchText) )
+        if ( !_.isEqual(this.props.products, prevProps.products) || !_.isEqual(this.props.searchText, prevProps.searchText))
         {
             const data = this.getFilteredArray(this.props.products, this.props.searchText);
             this.setState({data})
@@ -38,11 +38,14 @@ class ProductsTable extends Component {
     }
 
     getFilteredArray = (data, searchText) => {
-        if ( searchText.length === 0 )
+        if ( searchText.length === 0)
         {
             return data;
         }
-        return _.filter(data, item => item.name.toLowerCase(data).includes(searchText.toLowerCase(data)));
+        return _.filter(
+            data, item => item.car_maker.concat(' ', item.car_model, ' ', item.trim, ' ', item.year).toLowerCase().includes(searchText)
+        );
+        
     };
 
     handleRequestSort = (event, property) => {
@@ -182,11 +185,9 @@ class ProductsTable extends Component {
 
                                             <TableCell className="truncate" component="th" scope="row">
                                                 {data.car_model}
-                                            </TableCell>
-
-                                            {/* <TableCell className="truncate" component="th" scope="row">
+                                                {' - '}
                                                 {data.trim}
-                                            </TableCell> */}
+                                            </TableCell>
 
                                             <TableCell component="th" scope="row" numeric>
                                                 {data.year}
@@ -194,9 +195,8 @@ class ProductsTable extends Component {
 
                                             <TableCell component="th" scope="row" numeric>                                               
                                                 {data.odometer}
-                                                <spam> </spam>
+                                                {' '}
                                                 {data.odometer_unit}
-                                                {/* <i className={classNames("inline-block w-8 h-8 rounded ml-8", data.quantity <= 5 && "bg-red", data.quantity > 5 && data.quantity <= 25 && "bg-orange", data.quantity > 25 && "bg-green")}/> */}
                                             </TableCell>
 
                                             <TableCell component="th" scope="row" numeric>
