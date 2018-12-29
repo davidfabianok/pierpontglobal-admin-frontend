@@ -64,7 +64,7 @@ const rows = [
         numeric       : true,
         disablePadding: false,
         label         : 'Ext-Color',
-        sort          : false
+        sort          : true
     },
     // {
     //     id            : 'quantity',
@@ -78,14 +78,14 @@ const rows = [
         numeric       : true,
         disablePadding: false,
         label         : 'Engine',
-        sort          : false
+        sort          : true
     },
     {
         id            : 'name',
         numeric       : true,
         disablePadding: false,
         label         : 'VIN',
-        sort          : false
+        sort          : true
     }
 ];
 
