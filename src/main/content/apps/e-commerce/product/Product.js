@@ -107,14 +107,12 @@ class Product extends Component {
     //         !_.isEqual(this.props.product.data, this.state.form)
     //     );
     // }
-
+    
     render()
     {
         const {classes, saveProduct} = this.props;
         const {tabValue, form} = this.state;
-
         console.log(form)
-
         return (
             <FusePageCarded
                 classes={{
@@ -130,7 +128,7 @@ class Product extends Component {
                                 <FuseAnimate animation="transition.slideRightIn" delay={300}>
                                     <Typography className="normal-case flex items-center sm:mb-12" component={Link} role="button" to="/apps/e-commerce/products">
                                         <Icon className="mr-4 text-20">arrow_back</Icon>
-                                        Products
+                                        Vehicule
                                     </Typography>
                                 </FuseAnimate>
 
@@ -145,11 +143,11 @@ class Product extends Component {
                                     <div className="flex flex-col min-w-0">
                                         <FuseAnimate animation="transition.slideLeftIn" delay={300}>
                                             <Typography className="text-16 sm:text-20 truncate">
-                                                {form.name ? form.name : 'New Product'}
+                                                {form.name ? form.car_model : 'New Vehicule'}
                                             </Typography>
                                         </FuseAnimate>
                                         <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                                            <Typography variant="caption">Product Detail</Typography>
+                                            <Typography variant="caption">Vehicule Details</Typography>
                                         </FuseAnimate>
                                     </div>
                                 </div>
@@ -178,7 +176,7 @@ class Product extends Component {
                         classes={{root: "w-full h-64"}}
                     >
                         <Tab className="h-64 normal-case" label="Basic Info"/>
-                        <Tab className="h-64 normal-case" label="Product Images"/>
+                        {/* <Tab className="h-64 normal-case" label="Product Images"/> */}
                         <Tab className="h-64 normal-case" label="Pricing"/>
                         <Tab className="h-64 normal-case" label="Inventory"/>
                         <Tab className="h-64 normal-case" label="Shipping"/>
@@ -193,13 +191,13 @@ class Product extends Component {
 
                                     <TextField
                                         className="mt-8 mb-16"
-                                        error={form.name === ''}
+                                        error={form.car_maker === ''}
                                         required
                                         label="CarMake"
                                         autoFocus
                                         id="name"
                                         name="name"
-                                        value={form.car_Make}
+                                        value={form.car_maker}
                                         onChange={this.handleChange}
                                         variant="outlined"
                                         fullWidth
@@ -212,7 +210,7 @@ class Product extends Component {
                                         onChange={this.handleChange}
                                         label="Description"
                                         type="text"
-                                        value={form.description}
+                                        value={form.car_model}
                                         multiline
                                         rows={5}
                                         variant="outlined"
@@ -276,7 +274,7 @@ class Product extends Component {
                                     </div>
                                 </div>
                             )}
-                            {tabValue === 2 && (
+                            {/* {tabValue === 2 && (
                                 <div>
 
                                     <TextField
@@ -284,7 +282,7 @@ class Product extends Component {
                                         label="Tax Excluded Price"
                                         id="priceTaxExcl"
                                         name="priceTaxExcl"
-                                        value={form.priceTaxExcl}
+                                        value={form.auction_start_date}
                                         onChange={this.handleChange}
                                         InputProps={{
                                             startAdornment: <InputAdornment position="start">$</InputAdornment>
@@ -300,7 +298,7 @@ class Product extends Component {
                                         label="Tax Included Price"
                                         id="priceTaxIncl"
                                         name="priceTaxIncl"
-                                        value={form.priceTaxIncl}
+                                        value={form.auction_location}
                                         onChange={this.handleChange}
                                         InputProps={{
                                             startAdornment: <InputAdornment position="start">$</InputAdornment>
@@ -316,7 +314,7 @@ class Product extends Component {
                                         label="Tax Rate"
                                         id="taxRate"
                                         name="taxRate"
-                                        value={form.taxRate}
+                                        value={form.auction_id}
                                         onChange={this.handleChange}
                                         InputProps={{
                                             startAdornment: <InputAdornment position="start">$</InputAdornment>
@@ -343,7 +341,7 @@ class Product extends Component {
                                     />
 
                                 </div>
-                            )}
+                            )} */}
                             {tabValue === 3 && (
                                 <div>
 
