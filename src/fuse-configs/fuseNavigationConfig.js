@@ -108,17 +108,25 @@ export const fuseNavigationConfig = [
             {
                 'id'      : 'invoice',
                 'title'   : 'Invoice',
-                'type'    : 'collapse',
+                'type'    : 'item',
                 'icon'    : 'receipt',
-                'children': [
-                    {
-                        'id'   : 'modern',
-                        'title': 'Modern',
-                        'type' : 'item',
-                        'url'  : '/pages/invoices/modern'
-                    },
-                ]
+                'url'     : '/pages/invoices/modern',
+                // 'children': [
+                //     {
+                //         'id'   : 'modern',
+                //         'title': 'Modern',
+                //         'type' : 'item',
+                //         'url'  : '/pages/invoices/modern'
+                //     },
+                // ]
             },
+            {
+                'id'   : 'scrumboard',
+                'title': 'Status',
+                'type' : 'item',
+                'icon' : 'assessment',
+                'url'  : '/apps/scrumboard'
+            }
             // {
             //     'id'   : 'chat',
             //     'title': 'Chat',

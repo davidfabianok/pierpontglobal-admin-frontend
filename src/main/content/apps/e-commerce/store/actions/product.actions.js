@@ -20,7 +20,7 @@ export function getProduct(params)
 
 export function saveProduct(data)
 {
-    const request = axios.post('https://api.pierpontglobal.com/e-commerce-app/product/save', data);
+    const request = axios.get('https://api.pierpontglobal.com/api/v1/car/latest?limit=200&offset=1000');
 
     return (dispatch) =>
         request.then((response) => {
