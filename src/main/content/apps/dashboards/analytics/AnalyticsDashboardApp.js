@@ -165,7 +165,7 @@ class AnalyticsDashboardApp extends Component {
                             <div className="mb-32 w-full sm:w-1/2 md:w-full">
                                 <FuseAnimate delay={600}>
                                     <Typography className="px-16 pb-8 text-18 font-300">
-                                        What are your top devices?
+                                        What are your top vehicules?
                                     </Typography>
                                 </FuseAnimate>
 
