@@ -36,12 +36,12 @@ function MainNavbarHeader({classes})
     return (
         <div className={classes.root}>
             <div className={classNames(classes.logo, "flex items-center")}>
-                {/* <img className={classNames(classes.logoIcon, "logo-icon")} src="assets/images/logos/Logo 4a - White.png" alt="logo"/>
+                {/* <img className={classNames(classes.logoIcon, "logo-icon")} src="assets/images/logos/logo4awhite.png" alt="logo"/>
                 <Typography className="text-16 ml-8 font-light logo-text" color="inherit"></Typography> */}
                 <div className={classNames(classes.reactBadge, "react-badge flex items-center ml-12 mr-8 py-4 px-8 rounded")}>
                     <img
                         className="react-logo"
-                        src="assets/images/logos/Logo 4a - White.png"
+                        src="assets/images/logos/logo4awhite.png"
                         alt="Pierpont Global"
                         width="70"
                     />
