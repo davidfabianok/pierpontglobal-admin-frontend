@@ -17,33 +17,33 @@ class ProductsHeader extends Component {
     {
         const {classes, setSearchText, searchText} = this.props;
         return (
-            <div className={classNames(classes.root, "flex flex-1 w-full items-center justify-between")}>
+            <div className={classNames(classes.root, "flex flex-1 w-full mx-8 items-center justify-between")}>
 
                 <div className="flex items-center">
                     <FuseAnimate animation="transition.expandIn" delay={300}>
-                        <Icon className="text-32 mr-0 sm:mr-12">shopping_basket</Icon>
+                        <Icon className="text-32 mr-0 sm:mr-12">directions_car</Icon>
                     </FuseAnimate>
                     <FuseAnimate animation="transition.slideLeftIn" delay={300}>
                         <Typography className="hidden sm:flex" variant="h6">Vehicules</Typography>
                     </FuseAnimate>
                 </div>
 
-                <div className="flex flex-1 items-center justify-center px-12">
+                <div className="flex flex-1 items-center justify-end px-12">
 
                     <MuiThemeProvider theme={FuseSelectedTheme}>
                         <FuseAnimate animation="transition.slideDownIn" delay={300}>
-                            <Paper className="flex items-center w-full max-w-512 px-8 py-4 rounded-8" elevation={1}>
+                            <Paper className="flex items-center w-full max-w-320 px-8 py-4 rounded-8" elevation={1}>
 
                                 <Icon className="mr-8" color="action">search</Icon>
 
                                 <Input
-                                    placeholder="Search"
+                                    placeholder="Filter cars by Make and Model"
                                     className="flex flex-1"
                                     disableUnderline
                                     fullWidth
                                     value={searchText}
                                     inputProps={{
-                                        'aria-label': 'Search'
+                                        'aria-label': 'Filter'
                                     }}
                                     onChange={setSearchText}
                                 />
@@ -52,12 +52,12 @@ class ProductsHeader extends Component {
                     </MuiThemeProvider>
 
                 </div>
-                <FuseAnimate animation="transition.slideRightIn" delay={300}>
+                {/* <FuseAnimate animation="transition.slideRightIn" delay={300}>
                     <Button component={Link} to="/apps/e-commerce/products/new" className="whitespace-no-wrap" variant="contained">
-                        <span className="hidden sm:flex">Add New Product</span>
-                        <span className="flex sm:hidden">New</span>
+                        <span className="hidden sm:flex">More Information</span>
+                        <span className="flex sm:hidden">Info</span>
                     </Button>
-                </FuseAnimate>
+                </FuseAnimate> */}
             </div>
         );
     }

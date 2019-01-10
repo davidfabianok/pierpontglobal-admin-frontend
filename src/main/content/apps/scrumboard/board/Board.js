@@ -18,7 +18,6 @@ class Board extends Component {
     state = {
         settingsDrawerOpen: false
     };
-
     componentDidMount()
     {
         this.props.getBoard(this.props.match.params.boardId);
