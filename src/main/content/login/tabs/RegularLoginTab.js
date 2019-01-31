@@ -118,7 +118,7 @@ class RegularLoginTab extends Component {
 
                 </Formsy>
 
-                <div className="flex flex-col items-center pt-24">
+                {/* <div className="flex flex-col items-center pt-24">
                     <Typography className="text-14 font-600 py-8">
                         Credentials
                     </Typography>
@@ -146,7 +146,7 @@ class RegularLoginTab extends Component {
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </div> */}
 
             </div>
         );
