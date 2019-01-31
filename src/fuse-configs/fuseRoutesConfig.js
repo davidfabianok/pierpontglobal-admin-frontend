@@ -32,7 +32,7 @@ export const routes = [
     {
         path     : '/',
         exact    : true,
-        component: () => <Redirect to="/apps/dashboards/analytics"/>
+        component: () => <Redirect to="/login"/>
     },
     {
         path     : '/register',

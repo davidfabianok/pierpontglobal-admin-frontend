@@ -15,12 +15,12 @@ class Auth extends Component {
         /**
          * Comment the line if you do not use Auth0
          */
-        auth0Service.init();
+        // auth0Service.init();
 
         /**
          * Comment the line if you do not use Firebase
          */
-        firebaseService.init();
+        // firebaseService.init();
     }
 
     componentDidMount()
