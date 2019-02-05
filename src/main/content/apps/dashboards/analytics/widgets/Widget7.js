@@ -45,7 +45,7 @@ class Widget7 extends Component {
             <Card className={classNames(classes.root, "w-full")}>
 
                 <div className="p-16">
-                    <Typography className="h1 font-300">Sessions by device</Typography>
+                    <Typography className="h1 font-300">Cars</Typography>
                 </div>
 
                 <div className="h-224 relative">

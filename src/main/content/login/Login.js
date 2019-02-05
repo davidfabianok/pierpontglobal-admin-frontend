@@ -50,6 +50,8 @@ class Login extends Component {
                         <Typography variant="h3" color="inherit" className="font-light">
                             Welcome to Pierpont Global   
                         </Typography>
+
+
                     </FuseAnimate>
 
                     <FuseAnimate delay={400}>
@@ -91,14 +93,13 @@ class Login extends Component {
                                 />
                             </Tabs>
 
-                            {tabValue === 0 && <FirebaseLoginTab/>}
-                            {tabValue === 1 && <Auth0LoginTab/>}
+                            {/* {tabValue === 0 && <FirebaseLoginTab/>}
+                            {tabValue === 1 && <Auth0LoginTab/>} */}
                             {tabValue === 2 && <RegularLoginTab/>}
 
                             <div className="flex flex-col items-center justify-center pt-32">
                                 <span className="font-medium">Don't have an account?</span>
                                 <Link className="font-medium" to="/register">Create an account</Link>
-                                <Link className="font-medium mt-8" to="/">Back to Dashboard</Link>
                             </div>
 
                         </CardContent>

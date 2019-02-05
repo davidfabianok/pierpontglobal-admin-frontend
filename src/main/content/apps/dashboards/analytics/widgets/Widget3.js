@@ -27,7 +27,7 @@ class Widget3 extends Component {
 
                 <div className="p-16 pb-0 flex flex-row items-end flex-wrap">
                     <div className="pr-16">
-                        <Typography className="h3" color="textSecondary">Impressions</Typography>
+                        <Typography className="h3" color="textSecondary">Sales by date</Typography>
                         <Typography className="text-56 font-300 leading-none mt-8">
                             {data.impressions.value}
                         </Typography>

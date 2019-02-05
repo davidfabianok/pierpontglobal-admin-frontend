@@ -109,7 +109,7 @@ class AnalyticsDashboardApp extends Component {
                     <span className="font-medium mt-8">Already have an account?</span>
                     <Link className="font-medium mt-8" to="/login">Login</Link>
                     <Link className="font-medium mt-8" to="/register">Create an account</Link>
-                    <Link className="font-medium mt-8" to="/">Back to Dashboard</Link>
+                  
                 </div>
 
                 {<FuseAnimate animation="transition.slideUpIn" delay={200}>
@@ -151,7 +151,7 @@ class AnalyticsDashboardApp extends Component {
 
                             <FuseAnimate delay={600}>
                                 <Typography className="px-16 pb-8 text-18 font-300">
-                                    Where are your users?
+                                    Who are your users?
                                 </Typography>
                             </FuseAnimate> 
 
