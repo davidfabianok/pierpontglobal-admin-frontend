@@ -27,7 +27,7 @@ class Widget2 extends Component {
                 <div className="p-16 pb-0 flex flex-row flex-wrap items-end">
 
                     <div className="pr-16">
-                        <Typography className="h3" color="textSecondary">Conversion</Typography>
+                        <Typography className="h3" color="textSecondary">New datasets</Typography>
                         <Typography className="text-56 font-300 leading-none mt-8">
                             {data.conversion.value}
                         </Typography>

@@ -19,7 +19,7 @@ class Widget9 extends Component {
         return (
             <Card className={classNames(classes.root, "w-full")}>
                 <div className="p-16 pr-4 flex flex-row items-center justify-between">
-                    <Typography className="h1 pr-16">Top campaigns</Typography>
+                    <Typography className="h1 pr-16">Liked ones</Typography>
 
                     <div>
                         <IconButton aria-label="more">
@@ -50,7 +50,7 @@ class Widget9 extends Component {
                 <Divider className="card-divider w-full"/>
 
                 <div className="p-8 pt-16 flex flex-row items-center">
-                    <Button>GO TO CAMPAIGNS</Button>
+                    <Button>GO TO MARKETPLACE</Button>
                 </div>
             </Card>
         );

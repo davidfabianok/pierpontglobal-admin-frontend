@@ -44,8 +44,8 @@ class Widget1 extends Component {
 
                         <FuseAnimate delay={100}>
                             <div className="flex-col">
-                                <Typography className="h2">Sales</Typography>
-                                <Typography className="h5" color="textSecondary">Unique sales by month</Typography>
+                                <Typography className="h2">Visitors</Typography>
+                                <Typography className="h5" color="textSecondary">Visitors by a period of time</Typography>
                             </div>
                         </FuseAnimate>
 
@@ -74,6 +74,11 @@ class Widget1 extends Component {
                     </div>
                 </div>
             </MuiThemeProvider>
+
+            // entonces esto sirve para manejar difernetes tipos de estados
+            // de los graficos utilizados en eldashboard principal
+            // ademas manejando los estandares de documentacion requeridos
+            // gracias a esto
         );
     }
 }
