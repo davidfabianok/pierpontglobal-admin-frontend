@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 import * as Actions from 'store/actions';
 import firebaseService from 'firebaseService';
 import auth0Service from 'auth0Service';
+import { withCookies } from 'react-cookie';
 
 class Auth extends Component {
 
@@ -29,11 +30,6 @@ class Auth extends Component {
          * Login with Auth0
          */
         this.auth0Check();
-
-        /**
-         * Login with Firebase
-         */
-        this.firebaseCheck();
     }
 
     auth0Check = () => {
@@ -96,4 +92,4 @@ function mapDispatchToProps(dispatch)
         dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(Auth);
+export default withCookies(connect(null, mapDispatchToProps)(Auth));

@@ -32,6 +32,8 @@
         "react-beautiful-dnd": "9.0.2",
         "react-big-calendar": "0.20.1",
         "react-chartjs-2": "2.7.4",
+        "react-cookie": "^3.0.8",
+        "react-cookies": "^0.1.0",
         "react-dnd": "2.6.0",
         "react-dnd-html5-backend": "2.6.0",
         "react-dom": "16.5.2",

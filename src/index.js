@@ -24,6 +24,7 @@ import store from 'store';
 import SettingsPanel from 'main/SettingsPanel';
 // import ChatPanel from 'main/chatPanel/ChatPanel';
 import {Auth} from 'auth';
+import { CookiesProvider } from 'react-cookie';
 
 const jss = create({
     ...jssPreset(),
@@ -38,35 +39,37 @@ ReactDOM.render(
         <Provider store={store}>
             <Auth>
                 <Router history={history}>
-                    <FuseAuthorization routes={routes}>
-                        <FuseTheme>
-                            <FuseLayout
-                                routes={routes}
-                                toolbar={
-                                    <MainToolbar/>
-                                }
-                                navbarHeader={
-                                    <MainNavbarHeader/>
-                                }
-                                navbarContent={
-                                    <MainNavbarContent/>
-                                }
-                                // footer={
-                                //     // <MainFooter/>
-                                // }
-                                rightSidePanel={
-                                    <React.Fragment>
-                                        {/* <ChatPanel/> */}
-                                        <QuickPanel/>
-                                    </React.Fragment>
-                                }
-                                // contentWrapper={
-                                //     <SettingsPanel/>
-                                // }
-                            >
-                            </FuseLayout>
-                        </FuseTheme>
-                    </FuseAuthorization>
+                    <CookiesProvider>
+                        <FuseAuthorization routes={routes}>
+                            <FuseTheme>
+                                <FuseLayout
+                                    routes={routes}
+                                    toolbar={
+                                        <MainToolbar/>
+                                    }
+                                    navbarHeader={
+                                        <MainNavbarHeader/>
+                                    }
+                                    navbarContent={
+                                        <MainNavbarContent/>
+                                    }
+                                    // footer={
+                                    //     // <MainFooter/>
+                                    // }
+                                    rightSidePanel={
+                                        <React.Fragment>
+                                            {/* <ChatPanel/> */}
+                                            <QuickPanel/>
+                                        </React.Fragment>
+                                    }
+                                    // contentWrapper={
+                                    //     <SettingsPanel/>
+                                    // }
+                                >
+                                </FuseLayout>
+                            </FuseTheme>
+                        </FuseAuthorization>
+                    </CookiesProvider>
                 </Router>
             </Auth>
         </Provider>

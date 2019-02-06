@@ -5,8 +5,7 @@ import {Card, CardContent, Typography, Icon, Tabs, Tab} from '@material-ui/core'
 import classNames from 'classnames';
 import {FuseAnimate} from '@fuse';
 import RegularLoginTab from './tabs/RegularLoginTab';
-import FirebaseLoginTab from './tabs/FirebaseLoginTab';
-import Auth0LoginTab from './tabs/Auth0LoginTab';
+import { withCookies } from 'react-cookie';
 
 const styles = theme => ({
     root : {
@@ -76,16 +75,6 @@ class Login extends Component {
                                 fullWidth={true}
                                 className="mb-32"
                             >
-                                {/* <Tab
-                                    icon={<img className="h-40" src="assets/images/logos/firebase.svg" alt="firebase"/>}
-                                    className="min-w-0"
-                                    label="Firebase"
-                                />
-                                <Tab
-                                    icon={<img className="h-40" src="assets/images/logos/auth0.svg" alt="auth0"/>}
-                                    className="min-w-0"
-                                    label="Auth0"
-                                /> */}
                                 <Tab
                                     icon={<Icon className="h-40 text-40">security</Icon>}
                                     className="min-w-0"
@@ -93,14 +82,7 @@ class Login extends Component {
                                 />
                             </Tabs>
 
-                            {/* {tabValue === 0 && <FirebaseLoginTab/>}
-                            {tabValue === 1 && <Auth0LoginTab/>} */}
                             {tabValue === 2 && <RegularLoginTab/>}
-
-                            <div className="flex flex-col items-center justify-center pt-32">
-                                <span className="font-medium">Don't have an account?</span>
-                                <Link className="font-medium" to="/register">Create an account</Link>
-                            </div>
 
                         </CardContent>
                     </Card>
@@ -110,4 +92,4 @@ class Login extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(Login));
+export default withCookies(withStyles(styles, {withTheme: true})(withRouter(Login)));
