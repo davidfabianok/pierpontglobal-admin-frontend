@@ -16,7 +16,7 @@ class Auth extends Component {
         /**
          * Comment the line if you do not use Auth0
          */
-        // auth0Service.init();
+        auth0Service.init();
 
         /**
          * Comment the line if you do not use Firebase
@@ -26,6 +26,7 @@ class Auth extends Component {
 
     componentDidMount()
     {
+        console.log('testHectorHEctor')
         /**
          * Login with Auth0
          */
@@ -33,21 +34,7 @@ class Auth extends Component {
     }
 
     auth0Check = () => {
-
-        if ( auth0Service.isAuthenticated() )
-        {
-            this.props.showMessage({message: 'Logging in with Auth0'});
-
-            /**
-             * Retrieve user data from Auth0
-             */
-            auth0Service.getUserData().then(tokenData => {
-
-                this.props.setUserDataAuth0(tokenData);
-
-                this.props.showMessage({message: 'Logged in with Auth0'});
-            })
-        }
+        this.props.setUserDataAuth0();
     };
 
     firebaseCheck = () => {

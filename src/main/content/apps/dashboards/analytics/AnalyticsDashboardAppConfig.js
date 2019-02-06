@@ -8,6 +8,7 @@ export const AnalyticsDashboardAppConfig = {
     },
     routes  : [
         {
+            auth     : ['admin'],
             path     : '/apps/dashboards/analytics',
             component: FuseLoadable({
                 loader: () => import('./AnalyticsDashboardApp')

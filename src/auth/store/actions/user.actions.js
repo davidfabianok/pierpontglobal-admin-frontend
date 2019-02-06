@@ -16,12 +16,11 @@ export const USER_LOGGED_OUT = '[USER] LOGGED OUT';
 /**
  * Set user data from Auth0 token data
  */
-export function setUserDataAuth0(tokenData)
+export function setUserDataAuth0()
 {
-    
     return function action(dispatch) {
         dispatch({ type: SET_USER_DATA })
-        const request = axios.get('http://0.0.0.0:3000/api/v1/user/');
+        const request = axios.get('https://api.pierpontglobal.com/api/v1/user/');
         return request.then(
           response => {
 

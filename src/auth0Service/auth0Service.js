@@ -8,6 +8,7 @@ class auth0Service {
 
     init()
     {
+        console.log("Initiating auth")
         this.lock = new Auth0Lock(
             AUTH_CONFIG.clientId,
             AUTH_CONFIG.domain,
@@ -93,6 +94,7 @@ class auth0Service {
     isAuthenticated = () => {
         if ( !this.lock )
         {
+            console.log("Not Authenticated")
             return false;
         }
         // Check whether the current time is past the

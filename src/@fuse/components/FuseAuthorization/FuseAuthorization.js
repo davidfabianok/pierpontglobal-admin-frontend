@@ -49,21 +49,21 @@ class FuseAuthorization extends Component {
 
     checkAuth()
     {
+        if (this.props.history.location.pathname == '/'){
+            this.props.history.push({
+                pathname: '/apps/dashboards/analytics',
+                state   : {redirectUrl: this.props.location.pathname}
+            });
+        };
         const matched = matchRoutes(this.props.routes, this.props.location.pathname)[0];
         if ( matched && matched.route.auth && matched.route.auth.length > 0 )
         {
             redirect = true;
-            if ( this.props.user.role === 'guest' )
+            if ( ! matched.route.auth.includes(this.props.cookies.get('role')) )
             {
                 this.props.history.push({
                     pathname: '/login',
                     state   : {redirectUrl: this.props.location.pathname}
-                });
-            }
-            else
-            {
-                this.props.history.push({
-                    pathname: '/'
                 });
             }
         }

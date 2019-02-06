@@ -8,7 +8,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
 export function submitLogin({username, password, cookies})
 {
-    const request = axios.post('http://0.0.0.0:3000/oauth/token', {
+    const request = axios.post('https://api.pierpontglobal.com/oauth/token', {
             username,
             password,
             grant_type: "password"
@@ -18,6 +18,7 @@ export function submitLogin({username, password, cookies})
             if ( !response.data.error )
             {
                 cookies.set('token', response.data.access_token, {path: '/'})
+                cookies.set('role', 'admin', {path: '/'})
 
                 if (cookies.get('token')) {
                     console.log(cookies.get('token'));
@@ -28,7 +29,7 @@ export function submitLogin({username, password, cookies})
                     }, error => Promise.reject(error));
                 }
 
-                dispatch(setUserDataAuth0(response.data));
+                dispatch(setUserDataAuth0());
                 return dispatch({
                     type: LOGIN_SUCCESS
                 });

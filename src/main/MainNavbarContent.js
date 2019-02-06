@@ -84,6 +84,7 @@ function mapDispatchToProps(dispatch)
 
 function mapStateToProps({fuse, auth})
 {
+    console.log(auth);
     return {
         navigation : fuse.navigation,
         layoutStyle: fuse.settings.current.layout.style,
