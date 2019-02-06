@@ -120,13 +120,13 @@ export const fuseNavigationConfig = [
                 //     },
                 // ]
             },
-            {
-                'id'   : 'scrumboard',
-                'title': 'Status',
-                'type' : 'item',
-                'icon' : 'assessment',
-                'url'  : '/apps/scrumboard'
-            }
+            // {
+            //     'id'   : 'scrumboard',
+            //     'title': 'Status',
+            //     'type' : 'item',
+            //     'icon' : 'assessment',
+            //     'url'  : '/apps/scrumboard'
+            // }
             // {
             //     'id'   : 'chat',
             //     'title': 'Chat',
