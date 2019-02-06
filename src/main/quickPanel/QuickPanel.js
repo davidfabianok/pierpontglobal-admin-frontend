@@ -69,7 +69,7 @@ class QuickPanel extends Component {
                         </div>
                     </div>
                     <Divider/>
-                    <List>
+                    {/* <List>
                         <ListSubheader component="div">Events</ListSubheader>
                         {data && data.events.map(event => (
                             <ListItem key={event.id}>
@@ -91,7 +91,7 @@ class QuickPanel extends Component {
                                 />
                             </ListItem>
                         ))}
-                    </List>
+                    </List> */}
                     <Divider/>
                     <List>
                         <ListSubheader component="div">Quick Settings</ListSubheader>
