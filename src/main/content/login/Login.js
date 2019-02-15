@@ -5,8 +5,7 @@ import {Card, CardContent, Typography, Icon, Tabs, Tab} from '@material-ui/core'
 import classNames from 'classnames';
 import {FuseAnimate} from '@fuse';
 import RegularLoginTab from './tabs/RegularLoginTab';
-import FirebaseLoginTab from './tabs/FirebaseLoginTab';
-import Auth0LoginTab from './tabs/Auth0LoginTab';
+
 
 const styles = theme => ({
     root : {
