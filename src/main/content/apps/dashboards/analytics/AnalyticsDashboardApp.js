@@ -102,13 +102,7 @@ class AnalyticsDashboardApp extends Component {
         return (
             <div className={classes.root}>
 
-                <Widget1 data={widgets.widget1}/>
-                <div className="flex flex-col items-center justify-center pt-32 pb-24">
-                    <span className="font-medium mt-8">Already have an account?</span>
-                    <Link className="font-medium mt-8" to="/login">Login</Link>
-                    <Link className="font-medium mt-8" to="/register">Create an account</Link>
-                  
-                </div>
+                <Widget1 data={widgets.widget1} />
 
                 {<FuseAnimate animation="transition.slideUpIn" delay={200}>
 

@@ -82,7 +82,7 @@ class Register extends Component {
                     className={classNames(classes.intro, "flex flex-col flex-no-grow items-center p-16 text-center md:p-128 md:items-start md:flex-no-shrink md:flex-1 md:text-left")}>
 
                     <FuseAnimate animation="transition.expandIn">
-                        <img className="w-320 mb-12" src="assets/images/logos/logo 4a - White.png" alt="logo"/>
+                        <img className="w-320 mb-12" src="assets/images/logos/logo4awhite.png" alt="logo"/>
                     </FuseAnimate>
 
                     <FuseAnimate animation="transition.slideUpIn" delay={300}>

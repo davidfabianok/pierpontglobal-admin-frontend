@@ -7,6 +7,7 @@ import * as Actions from 'store/actions';
 import firebase from 'firebase/app';
 import firebaseService from 'firebaseService';
 import auth0Service from 'auth0Service';
+import axios from 'axios/index';
 
 export const SET_USER_DATA = '[USER] SET DATA';
 export const REMOVE_USER_DATA = '[USER] REMOVE DATA';
@@ -15,21 +16,28 @@ export const USER_LOGGED_OUT = '[USER] LOGGED OUT';
 /**
  * Set user data from Auth0 token data
  */
-export function setUserDataAuth0(tokenData)
+export function setUserDataAuth0()
 {
-    const user = {
-        role: 'admin',
-        from: 'auth0',
-        data: {
-            displayName: tokenData.username,
-            photoURL   : tokenData.picture,
-            email      : tokenData.email,
-            settings   : (tokenData.user_metadata && tokenData.user_metadata.settings) ? tokenData.user_metadata.settings : {},
-            shortcuts  : (tokenData.user_metadata && tokenData.user_metadata.shortcuts) ? tokenData.user_metadata.shortcuts : []
-        }
-    };
+    return function action(dispatch) {
+        dispatch({ type: SET_USER_DATA })
+        const request = axios.get('https://api.pierpontglobal.com/api/v1/user/');
+        return request.then(
+          response => {
 
-    return setUserData(user);
+            const userFromResponse = response.data;
+            const parsedUser = {
+                role: 'admin',
+                from: 'auth0',
+                data: {
+                    displayName: [userFromResponse.first_name, userFromResponse.last_name]
+                }
+            };
+            console.log(response)
+            dispatch(setUserData(parsedUser));
+          },
+          err => dispatch(removeUserData())
+        );
+    }
 }
 
 /**

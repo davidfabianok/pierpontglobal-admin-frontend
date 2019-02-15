@@ -112,7 +112,7 @@ class OrderInvoice extends Component {
 
                                 <div className={classNames(classes.seller, "flex items-center p-16")}>
 
-                                    <img className="w-80" src="assets/images/logos/Logo 4a - White.png" alt="logo"/>
+                                    <img className="w-80" src="assets/images/logos/logo4awhite.png" alt="logo"/>
 
                                     <div className={classNames(classes.divider, "divider ml-8 mr-16 h-96")}/>
 

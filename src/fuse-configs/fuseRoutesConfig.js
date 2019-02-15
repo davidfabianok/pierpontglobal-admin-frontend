@@ -29,17 +29,4 @@ const routeConfigs = [
 
 export const routes = [
     ...FuseUtils.generateRoutesFromConfigs(routeConfigs),
-    {
-        path     : '/',
-        exact    : true,
-        component: () => <Redirect to="/login"/>
-    },
-    {
-        path     : '/register',
-        exact    : true,
-        component: () => <Redirect to="/login"/>
-    },
-    {
-        component: () => <Redirect to="/pages/errors/error-404"/>
-    }
 ];

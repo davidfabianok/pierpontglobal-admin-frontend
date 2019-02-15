@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 import * as Actions from 'store/actions';
 import firebaseService from 'firebaseService';
 import auth0Service from 'auth0Service';
+import { withCookies } from 'react-cookie';
 
 class Auth extends Component {
 
@@ -15,7 +16,7 @@ class Auth extends Component {
         /**
          * Comment the line if you do not use Auth0
          */
-        // auth0Service.init();
+        auth0Service.init();
 
         /**
          * Comment the line if you do not use Firebase
@@ -25,33 +26,15 @@ class Auth extends Component {
 
     componentDidMount()
     {
+        console.log('testHectorHEctor')
         /**
          * Login with Auth0
          */
         this.auth0Check();
-
-        /**
-         * Login with Firebase
-         */
-        this.firebaseCheck();
     }
 
     auth0Check = () => {
-
-        if ( auth0Service.isAuthenticated() )
-        {
-            this.props.showMessage({message: 'Logging in with Auth0'});
-
-            /**
-             * Retrieve user data from Auth0
-             */
-            auth0Service.getUserData().then(tokenData => {
-
-                this.props.setUserDataAuth0(tokenData);
-
-                this.props.showMessage({message: 'Logged in with Auth0'});
-            })
-        }
+        this.props.setUserDataAuth0();
     };
 
     firebaseCheck = () => {
@@ -96,4 +79,4 @@ function mapDispatchToProps(dispatch)
         dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(Auth);
+export default withCookies(connect(null, mapDispatchToProps)(Auth));

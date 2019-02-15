@@ -4,14 +4,34 @@ import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import _ from '@lodash';
+import { withCookies, Cookies } from 'react-cookie';
+import axios from 'axios/index';
+
+import { instanceOf } from 'prop-types';
 
 let redirect = false;
 
 class FuseAuthorization extends Component {
 
+    static propTypes = {
+        cookies: instanceOf(Cookies).isRequired
+    };
+
     constructor(props)
     {
+        const { cookies } = props;
         super(props);
+
+
+        if (cookies.get('token')) {
+            console.log(cookies.get('token'));
+            axios.interceptors.request.use((config) => {
+                config.headers = { Authorization: `Bearer ${cookies.get('token')}` };
+        
+                return config;
+            }, error => Promise.reject(error));
+        }
+
         this.checkAuth();
     }
 
@@ -29,25 +49,22 @@ class FuseAuthorization extends Component {
 
     checkAuth()
     {
+        if (this.props.history.location.pathname == '/'){
+            this.props.history.push({
+                pathname: '/apps/dashboards/analytics',
+                state   : {redirectUrl: this.props.location.pathname}
+            });
+        };
         const matched = matchRoutes(this.props.routes, this.props.location.pathname)[0];
         if ( matched && matched.route.auth && matched.route.auth.length > 0 )
         {
-            if ( !matched.route.auth.includes(this.props.user.role) )
+            redirect = true;
+            if ( ! matched.route.auth.includes(this.props.cookies.get('role')) )
             {
-                redirect = true;
-                if ( this.props.user.role === 'guest' )
-                {
-                    this.props.history.push({
-                        pathname: '/login',
-                        state   : {redirectUrl: this.props.location.pathname}
-                    });
-                }
-                else
-                {
-                    this.props.history.push({
-                        pathname: '/'
-                    });
-                }
+                this.props.history.push({
+                    pathname: '/login',
+                    state   : {redirectUrl: this.props.location.pathname}
+                });
             }
         }
     }
@@ -89,4 +106,4 @@ function mapStateToProps({fuse, auth})
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseAuthorization));
+export default withCookies(withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseAuthorization)));
