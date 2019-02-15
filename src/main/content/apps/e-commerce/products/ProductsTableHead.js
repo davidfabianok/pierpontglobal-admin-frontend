@@ -176,7 +176,7 @@ class ProductsTableHead extends React.Component {
                                 padding={row.disablePadding ? 'none' : 'default'}
                                 sortDirection={orderBy === row.id ? order : false}
                             >
-                                {row.sort && (
+                                {sort && (
                                     <Tooltip
                                         title="Sort"
                                         placement={row.numeric ? 'bottom-end' : 'bottom-start'}
