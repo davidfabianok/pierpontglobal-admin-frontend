@@ -9,6 +9,7 @@ import {Register2PageConfig} from './auth/register-2/Register2PageConfig';
 import {ForgotPassword2PageConfig} from './auth/forgot-password-2/ForgotPassword2PageConfig';
 import {ResetPassword2PageConfig} from './auth/reset-password-2/ResetPassword2PageConfig';
 import {ComingSoonPageConfig} from './coming-soon/ComingSoonPageConfig';
+import {BidsPageConfig} from './Bids/BidsPageConfig';
 import {Error404PageConfig} from './errors/404/Error404PageConfig';
 import {Error500PageConfig} from './errors/500/Error500PageConfig';
 import {MaintenancePageConfig} from './maintenance/MaintenancePageConfig';
@@ -35,6 +36,7 @@ export const pagesConfigs = [
     ForgotPassword2PageConfig,
     ResetPassword2PageConfig,
     ComingSoonPageConfig,
+    BidsPageConfig,
     Error404PageConfig,
     Error500PageConfig,
     MaintenancePageConfig,
