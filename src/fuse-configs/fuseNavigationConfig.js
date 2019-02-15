@@ -111,14 +111,13 @@ export const fuseNavigationConfig = [
                 'type'    : 'item',
                 'icon'    : 'receipt',
                 'url'     : '/pages/invoices/modern',
-                // 'children': [
-                //     {
-                //         'id'   : 'modern',
-                //         'title': 'Modern',
-                //         'type' : 'item',
-                //         'url'  : '/pages/invoices/modern'
-                //     },
-                // ]
+            },
+            {
+                'id'      : 'Bids',
+                'title'   : 'Bids',
+                'type'    : 'item',
+                'icon'    : 'directions_car',
+                'url'     : '/pages/coming-soon',
             },
             // {
             //     'id'   : 'scrumboard',
