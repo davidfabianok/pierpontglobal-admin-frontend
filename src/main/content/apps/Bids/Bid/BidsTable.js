@@ -258,11 +258,11 @@ function mapDispatchToProps(dispatch)
     }, dispatch);
 }
 
-function mapStateToProps({eCommerceApp})
+function mapStateToProps({BidsApp})
 {
     return {
-        products  : eCommerceApp.products.data,
-        searchText: eCommerceApp.products.searchText
+        Bids  : Bids.Bid.data,
+        searchText: Bids.Bid.searchText
     }
 }
 

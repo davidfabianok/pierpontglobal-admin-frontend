@@ -66,14 +66,14 @@ class BidsHeader extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        setSearchText: Actions.setProductsSearchText
+        setSearchText: Actions.setBidsSearchText
     }, dispatch);
 }
 
-function mapStateToProps({eCommerceApp})
+function mapStateToProps({BidsApp})
 {
     return {
-        searchText: eCommerceApp.products.searchText
+        searchText: Bids.Bid.searchText
     }
 }
 

@@ -30,4 +30,4 @@ class Bids extends Component {
     };
 }
 
-export default withReducer('eCommerceApp', reducer)(withStyles(styles)(Bids));
+export default withReducer('BidsApp', reducer)(withStyles(styles)(Bids));
