@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import {FusePageCarded} from '@fuse';
-import BidsTable from './ProductsTable';
-import BidsHeader from './ProductsHeader';
+import BidsTable from './BidsTable';
+import BidsHeader from './BidsHeader';
 import withReducer from 'store/withReducer';
 import reducer from './../store/reducers';
 

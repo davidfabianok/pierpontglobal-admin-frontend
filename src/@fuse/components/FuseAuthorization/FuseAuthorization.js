@@ -30,6 +30,16 @@ class FuseAuthorization extends Component {
         
                 return config;
             }, error => Promise.reject(error));
+
+            axios.interceptors.response.use(response => response,
+                (error) => {
+                  if (error.response.status === 401) {
+                    cookies.remove('token');
+                    cookies.remove('role')
+                    window.location.href = '/login';
+                  }
+                  return Promise.reject(error);
+                });
         }
 
         this.checkAuth();

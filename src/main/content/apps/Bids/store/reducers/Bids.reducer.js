@@ -1,4 +1,4 @@
-import * as Actions from '../actions';
+import * as actions from '../actions';
 
 const initialState = {
     data      : [],
@@ -8,20 +8,20 @@ const initialState = {
 const BidsReducer = function (state = initialState, action) {
     switch ( action.type )
     {
-        case Actions.GET_BIDS:
+        case actions.GET_BIDS:
         {
             return {
                 ...state,
                 data: action.payload
             };
         }
-        case Actions.SET_PRODUCTS_SEARCH_TEXT:
+        /* case actions.SET_PRODUCTS_SEARCH_TEXT:
         {
             return {
                 ...state,
                 searchText: action.searchText
             };
-        }
+        } */
         default:
         {
             return state;

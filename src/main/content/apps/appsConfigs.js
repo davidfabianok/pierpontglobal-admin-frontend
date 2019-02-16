@@ -1,6 +1,7 @@
 import {AnalyticsDashboardAppConfig} from './dashboards/analytics/AnalyticsDashboardAppConfig';
 import {MailAppConfig} from './mail/MailAppConfig';
 import {TodoAppConfig} from './todo/TodoAppConfig';
+import {BidsAppConfig} from './Bids/BidsAppConfig';
 import {ContactsAppConfig} from './contacts/ContactsAppConfig';
 import {FileManagerAppConfig} from './file-manager/FileManagerAppConfig';
 import {CalendarAppConfig} from './calendar/CalendarAppConfig';
@@ -17,5 +18,6 @@ export const appsConfigs = [
     CalendarAppConfig,
     ChatAppConfig,
     ECommerceAppConfig,
-    ScrumboardAppConfig
+    ScrumboardAppConfig,
+    BidsAppConfig,
 ];

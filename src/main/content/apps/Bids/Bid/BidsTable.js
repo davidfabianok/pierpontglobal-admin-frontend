@@ -25,7 +25,7 @@ class BidsTable extends Component {
 
     componentDidMount()
     {
-        this.props.getProducts();
+        this.props.getBids();
     }
 
     componentDidUpdate(prevProps, prevState)
@@ -254,7 +254,7 @@ class BidsTable extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        getProducts: Actions.getProducts
+        getBids: Actions.getBids
     }, dispatch);
 }
 

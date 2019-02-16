@@ -1,6 +1,6 @@
 import {FuseLoadable} from '@fuse';
 
-export const BidsPageConfig = {
+export const BidsAppConfig = {
     settings: {
         layout: {
             config: {}
