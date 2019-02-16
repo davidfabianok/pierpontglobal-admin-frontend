@@ -117,7 +117,7 @@ export const fuseNavigationConfig = [
                 'title'   : 'Bids',
                 'type'    : 'item',
                 'icon'    : 'directions_car',
-                'url'     : '/pages/coming-soon',
+                'url'     : '/apps/Bids/Bid',
             },
             // {
             //     'id'   : 'scrumboard',
