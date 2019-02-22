@@ -1,6 +1,6 @@
 import {FuseLoadable} from '@fuse';
 
-export const BidsAppConfig = {
+export const AdministratorsDashboardAppConfig = {
     settings: {
         layout: {
             config: {}
@@ -8,9 +8,10 @@ export const BidsAppConfig = {
     },
     routes  : [
         {
-            path     : '/apps/Bids/Bid',
+            auth     : ['admin'],
+            path     : '/apps/dashboards/administrators',
             component: FuseLoadable({
-                loader: () => import('./Bid/Bids')
+                loader: () => import('./Administrators')
             })
         }
     ]

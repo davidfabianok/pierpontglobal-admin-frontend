@@ -2,13 +2,14 @@ import axios from 'axios/index';
 import firebaseService from 'firebaseService';
 import {setUserDataAuth0} from 'auth/store/actions/user.actions';
 import * as Actions from 'store/actions';
+import { ApiServer } from '../../../Defaults';
 
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
 export function submitLogin({username, password, cookies})
 {
-    const request = axios.post('https://api.pierpontglobal.com/oauth/token', {
+    const request = axios.post(`${ApiServer}/oauth/token`, {
             username,
             password,
             grant_type: "password"
@@ -21,7 +22,6 @@ export function submitLogin({username, password, cookies})
                 cookies.set('role', 'admin', {path: '/'})
 
                 if (cookies.get('token')) {
-                    console.log(cookies.get('token'));
                     axios.interceptors.request.use((config) => {
                         config.headers = { Authorization: `Bearer ${cookies.get('token')}` };
                 

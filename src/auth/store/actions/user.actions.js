@@ -8,6 +8,7 @@ import firebase from 'firebase/app';
 import firebaseService from 'firebaseService';
 import auth0Service from 'auth0Service';
 import axios from 'axios/index';
+import { ApiServer } from '../../../Defaults';
 
 export const SET_USER_DATA = '[USER] SET DATA';
 export const REMOVE_USER_DATA = '[USER] REMOVE DATA';
@@ -20,7 +21,7 @@ export function setUserDataAuth0()
 {
     return function action(dispatch) {
         dispatch({ type: SET_USER_DATA })
-        const request = axios.get('https://api.pierpontglobal.com/api/v1/user/');
+        const request = axios.get(`${ApiServer}/api/v1/user/`);
         return request.then(
           response => {
 
@@ -32,7 +33,6 @@ export function setUserDataAuth0()
                     displayName: [userFromResponse.first_name, userFromResponse.last_name]
                 }
             };
-            console.log(response)
             dispatch(setUserData(parsedUser));
           },
           err => dispatch(removeUserData())

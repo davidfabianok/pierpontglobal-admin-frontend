@@ -8,24 +8,6 @@ class auth0Service {
 
     init()
     {
-        console.log("Initiating auth")
-        this.lock = new Auth0Lock(
-            AUTH_CONFIG.clientId,
-            AUTH_CONFIG.domain,
-            {
-                autoclose        : true,
-                socialButtonStyle: "big",
-                auth             : {
-                    // redirect: false,
-                    redirectUrl : AUTH_CONFIG.callbackUrl,
-                    responseType: 'token id_token',
-                    audience    : `https://${AUTH_CONFIG.domain}/api/v2/`,
-                    params      : {
-                        scope: 'openid profile email user_metadata app_metadata picture update:current_user_metadata create:current_user_metadata read:current_user'
-                    }
-                }
-            }
-        );
         this.handleAuthentication();
     }
 

@@ -24,7 +24,6 @@ class FuseAuthorization extends Component {
 
 
         if (cookies.get('token')) {
-            console.log(cookies.get('token'));
             axios.interceptors.request.use((config) => {
                 config.headers = { Authorization: `Bearer ${cookies.get('token')}` };
         

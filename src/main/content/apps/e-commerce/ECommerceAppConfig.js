@@ -32,6 +32,12 @@ export const ECommerceAppConfig = {
             })
         },
         {
+            path     : '/apps/cars/bids',
+            component: FuseLoadable({
+                loader: () => import('./Bids/Bids')
+            })
+        },
+        {
             path     : '/apps/e-commerce',
             component: () => <Redirect to="/apps/e-commerce/products"/>
         }

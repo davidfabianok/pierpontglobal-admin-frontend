@@ -112,7 +112,6 @@ class Product extends Component {
     {
         const {classes, saveProduct} = this.props;
         const {tabValue, form} = this.state;
-        console.log(form)
         return (
             <FusePageCarded
                 classes={{
