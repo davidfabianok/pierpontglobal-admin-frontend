@@ -117,7 +117,6 @@ class ProductsTable extends Component {
     render()
     {
         const {order, orderBy, selected, rowsPerPage, page, data} = this.state;
-        console.log(data)
         return (
             <div className="w-full flex flex-col">
                 

@@ -26,10 +26,6 @@ class Auth extends Component {
 
     componentDidMount()
     {
-        console.log('testHectorHEctor')
-        /**
-         * Login with Auth0
-         */
         this.auth0Check();
     }
 

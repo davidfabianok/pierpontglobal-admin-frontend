@@ -20,6 +20,12 @@ export const fuseNavigationConfig = [
                         'title': 'Analytics',
                         'type' : 'item',
                         'url'  : '/apps/dashboards/analytics'
+                    },
+                    {
+                        'id'   : 'administrators-dashboard',
+                        'title': 'Administrators',
+                        'type' : 'item',
+                        'url'  : '/apps/dashboards/administrators'
                     }
                 ]
             },
@@ -32,14 +38,14 @@ export const fuseNavigationConfig = [
             // },
             {
                 'id'      : 'e-commerce',
-                'title'   : 'E-Commerce',
+                'title'   : 'Management',
                 'type'    : 'collapse',
-                'icon'    : 'shopping_cart',
+                'icon'    : 'directions_cars',
                 'url'     : '/apps/e-commerce',
                 'children': [
                     {
                         'id'   : 'e-commerce-products',
-                        'title': 'Products',
+                        'title': 'Cars',
                         'type' : 'item',
                         'url'  : '/apps/e-commerce/products',
                         'exact': true
@@ -49,6 +55,13 @@ export const fuseNavigationConfig = [
                         'title': 'Product Detail',
                         'type' : 'item',
                         'url'  : '/apps/e-commerce/products/1/printed-dress',
+                        'exact': true
+                    },
+                    {
+                        'id': 'bids-page',
+                        'title': 'Bids',
+                        'type': 'item',
+                        'url': '/apps/cars/bids',
                         'exact': true
                     },
                     {
@@ -111,13 +124,6 @@ export const fuseNavigationConfig = [
                 'type'    : 'item',
                 'icon'    : 'receipt',
                 'url'     : '/pages/invoices/modern',
-            },
-            {
-                'id'      : 'Bids',
-                'title'   : 'Bids',
-                'type'    : 'item',
-                'icon'    : 'directions_car',
-                'url'     : '/pages/coming-soon',
             },
             // {
             //     'id'   : 'scrumboard',

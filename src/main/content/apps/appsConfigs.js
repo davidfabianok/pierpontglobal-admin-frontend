@@ -7,9 +7,11 @@ import {CalendarAppConfig} from './calendar/CalendarAppConfig';
 import {ChatAppConfig} from "./chat/ChatAppConfig";
 import {ECommerceAppConfig} from './e-commerce/ECommerceAppConfig';
 import {ScrumboardAppConfig} from './scrumboard/ScrumboardAppConfig';
+import {AdministratorsDashboardAppConfig} from './dashboards/Administrators/AdministratorsDashboardAppConfig'
 
 export const appsConfigs = [
     AnalyticsDashboardAppConfig,
+    AdministratorsDashboardAppConfig,
     MailAppConfig,
     TodoAppConfig,
     FileManagerAppConfig,
@@ -17,5 +19,5 @@ export const appsConfigs = [
     CalendarAppConfig,
     ChatAppConfig,
     ECommerceAppConfig,
-    ScrumboardAppConfig
+    ScrumboardAppConfig,
 ];

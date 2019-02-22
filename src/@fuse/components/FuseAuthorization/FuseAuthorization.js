@@ -24,12 +24,21 @@ class FuseAuthorization extends Component {
 
 
         if (cookies.get('token')) {
-            console.log(cookies.get('token'));
             axios.interceptors.request.use((config) => {
                 config.headers = { Authorization: `Bearer ${cookies.get('token')}` };
         
                 return config;
             }, error => Promise.reject(error));
+
+            axios.interceptors.response.use(response => response,
+                (error) => {
+                  if (error.response.status === 401) {
+                    cookies.remove('token');
+                    cookies.remove('role')
+                    window.location.href = '/login';
+                  }
+                  return Promise.reject(error);
+                });
         }
 
         this.checkAuth();

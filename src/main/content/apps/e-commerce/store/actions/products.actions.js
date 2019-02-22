@@ -1,11 +1,12 @@
 import axios from 'axios/index';
+import { ApiServer } from '../../../../../../Defaults';
 
 export const GET_PRODUCTS = '[E-COMMERCE APP] GET PRODUCTS';
 export const SET_PRODUCTS_SEARCH_TEXT = '[E-COMMERCE APP] SET PRODUCTS SEARCH TEXT';
 
 export function getProducts()
 {
-    const request = axios.get('https://api.pierpontglobal.com/api/v1/car/latest?limit=40&offset=0');
+    const request = axios.get(`${ApiServer}/api/v1/car/latest?limit=40&offset=0`);
 
     return (dispatch) =>
         request.then((response) =>
