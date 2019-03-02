@@ -1,0 +1,9 @@
+.BidsTableWrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    justify-items: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 30px;
+}

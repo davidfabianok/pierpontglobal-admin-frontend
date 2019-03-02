@@ -5,10 +5,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -20,11 +18,14 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import axios from 'axios';
 import { ApiServer } from '../../../../../../Defaults';
+import EnhancedTableHead from './EnhancedTableHead';
 
 const Timestamp = require('react-timestamp');
 
 function createData(id, name, roles, lastSignedIn, lastIp) {
-  return { id, name, roles, lastSignedIn, lastIp };
+  return {
+    id, name, roles, lastSignedIn, lastIp,
+  };
 }
 
 function desc(a, b, orderBy) {
@@ -51,72 +52,6 @@ function getSorting(order, orderBy) {
   return order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy);
 }
 
-const rows = [
-  { id: 'id', numeric: true, disablePadding: true, label: 'Admin ID' },
-  { id: 'name', numeric: false, disablePadding: false, label: 'Name (username)' },
-  { id: 'roles', numeric: false, disablePadding: false, label: 'User roles' },
-  { id: 'lastSignedIn', numeric: false, disablePadding: false, label: 'Last signed in' },
-  { id: 'lastIp', numeric: false, disablePadding: false, label: 'Last IP address' },
-];
-
-class EnhancedTableHead extends React.Component {
-  createSortHandler = property => event => {
-    this.props.onRequestSort(event, property);
-  };
-
-  render() {
-    const { onSelectAllClick, order, orderBy, numSelected, rowCount } = this.props;
-
-    return (
-      <TableHead>
-        <TableRow>
-          <TableCell padding="checkbox">
-            <Checkbox
-              indeterminate={numSelected > 0 && numSelected < rowCount}
-              checked={numSelected === rowCount}
-              onChange={onSelectAllClick}
-            />
-          </TableCell>
-          {rows.map(
-            row => (
-              <TableCell
-                key={row.id}
-                align={row.numeric ? 'right' : 'left'}
-                padding={row.disablePadding ? 'none' : 'default'}
-                sortDirection={orderBy === row.id ? order : false}
-              >
-                <Tooltip
-                  title="Sort"
-                  placement={row.numeric ? 'bottom-end' : 'bottom-start'}
-                  enterDelay={300}
-                >
-                  <TableSortLabel
-                    active={orderBy === row.id}
-                    direction={order}
-                    onClick={this.createSortHandler(row.id)}
-                  >
-                    {row.label}
-                  </TableSortLabel>
-                </Tooltip>
-              </TableCell>
-            ),
-            this,
-          )}
-        </TableRow>
-      </TableHead>
-    );
-  }
-}
-
-EnhancedTableHead.propTypes = {
-  numSelected: PropTypes.number.isRequired,
-  onRequestSort: PropTypes.func.isRequired,
-  onSelectAllClick: PropTypes.func.isRequired,
-  order: PropTypes.string.isRequired,
-  orderBy: PropTypes.string.isRequired,
-  rowCount: PropTypes.number.isRequired,
-};
-
 const toolbarStyles = theme => ({
   root: {
     paddingRight: theme.spacing.unit,
@@ -142,7 +77,7 @@ const toolbarStyles = theme => ({
   },
 });
 
-let EnhancedTableToolbar = props => {
+let EnhancedTableToolbar = (props) => {
   const { numSelected, classes } = props;
 
   return (
@@ -154,13 +89,15 @@ let EnhancedTableToolbar = props => {
       <div className={classes.title}>
         {numSelected > 0 ? (
           <Typography color="inherit" variant="subtitle1">
-            {numSelected} selected
-            </Typography>
+            {numSelected}
+            {' '}
+selected
+          </Typography>
         ) : (
-            <Typography variant="h6" id="tableTitle">
+          <Typography variant="h6" id="tableTitle">
               Administrators
-            </Typography>
-          )}
+          </Typography>
+        )}
       </div>
       <div className={classes.spacer} />
       <div className={classes.actions}>
@@ -171,14 +108,14 @@ let EnhancedTableToolbar = props => {
             </IconButton>
           </Tooltip>
         ) : (
-            <div>
-              <Tooltip title="Filter list">
-                <IconButton aria-label="Filter list">
-                  <FilterListIcon />
-                </IconButton>
-              </Tooltip>
-            </div>
-          )}
+          <div>
+            <Tooltip title="Filter list">
+              <IconButton aria-label="Filter list">
+                <FilterListIcon />
+              </IconButton>
+            </Tooltip>
+          </div>
+        )}
       </div>
     </Toolbar>
   );
@@ -205,8 +142,6 @@ const styles = theme => ({
 });
 
 class AdminTable extends React.Component {
-
-
   constructor(props) {
     super(props);
     this.state = {
@@ -219,56 +154,58 @@ class AdminTable extends React.Component {
     };
 
     this.getAdministrators = this.getAdministrators.bind(this);
+    this.handleRequestSort = this.handleRequestSort.bind(this);
+    this.handleSelectAllClick = this.handleSelectAllClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChangePage = this.handleChangePage.bind(this);
+    this.handleChangeRowsPerPage = this.handleChangeRowsPerPage.bind(this);
+    this.isSelected = this.isSelected.bind(this);
     this.getAdministrators();
   }
 
   async getAdministrators() {
-
-    const administrators = [];
     const response = await axios.get(`${ApiServer}/api/v1/admin/administrator`);
-    const administratosData = response.data
-    administratosData.map((administrator) => {
-
-      const roles = administrator.roles.map((role) => (
-        <span className="badge">{role}</span>
-      ))
-
-      administrators.push(
-        createData(
-          administrator.id,
-          `${administrator.first_name || ''} ${administrator.last_name || ''} (${administrator.username})`,
-          roles,
-          <Timestamp time={administrator.last_sign_in_at} />,
-          administrator.last_sign_in_ip,
-        )
-      )
-    })
+    const administratorsData = response.data;
+    const administrators = administratorsData.map((administrator) => {
+      const roles = administrator.roles.map(role => (
+        <span key={role} className="badge">{role}</span>
+      ));
+      return createData(
+        administrator.id,
+        `${administrator.first_name || ''} ${administrator.last_name || ''} (${administrator.username})`,
+        roles,
+        <Timestamp time={administrator.last_sign_in_at} />,
+        administrator.last_sign_in_ip,
+      );
+    });
 
     this.setState({
-      data: administrators
-    })
+      data: administrators || [],
+    });
   }
 
-  handleRequestSort = (event, property) => {
-    const orderBy = property;
-    let order = 'desc';
+  handleRequestSort(event, property) {
+    const orderByProperty = property;
+    let orderProperty = 'desc';
 
-    if (this.state.orderBy === property && this.state.order === 'desc') {
-      order = 'asc';
+    const { order, orderBy } = this.state;
+
+    if (orderBy === property && order === 'desc') {
+      orderProperty = 'asc';
     }
 
-    this.setState({ order, orderBy });
-  };
+    this.setState({ order: orderProperty, orderBy: orderByProperty });
+  }
 
-  handleSelectAllClick = event => {
+  handleSelectAllClick(event) {
     if (event.target.checked) {
       this.setState(state => ({ selected: state.data.map(n => n.id) }));
       return;
     }
     this.setState({ selected: [] });
-  };
+  }
 
-  handleClick = (event, id) => {
+  handleClick(event, id) {
     const { selected } = this.state;
     const selectedIndex = selected.indexOf(id);
     let newSelected = [];
@@ -287,21 +224,26 @@ class AdminTable extends React.Component {
     }
 
     this.setState({ selected: newSelected });
-  };
+  }
 
-  handleChangePage = (event, page) => {
+  handleChangePage(event, page) {
     this.setState({ page });
-  };
+  }
 
-  handleChangeRowsPerPage = event => {
+  handleChangeRowsPerPage(event) {
     this.setState({ rowsPerPage: event.target.value });
-  };
+  }
 
-  isSelected = id => this.state.selected.indexOf(id) !== -1;
+  isSelected(id) {
+    const { selected } = this.state;
+    return (selected.indexOf(id) !== -1);
+  }
 
   render() {
     const { classes } = this.props;
-    const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
+    const {
+      data, order, orderBy, selected, rowsPerPage, page,
+    } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
@@ -320,7 +262,7 @@ class AdminTable extends React.Component {
             <TableBody>
               {stableSort(data, getSorting(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map(n => {
+                .map((n) => {
                   const isSelected = this.isSelected(n.id);
                   return (
                     <TableRow

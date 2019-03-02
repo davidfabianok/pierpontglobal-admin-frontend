@@ -1,0 +1,62 @@
+.BidDataWrapper {
+    padding: 20px;
+}
+
+.rounded-corners {
+    border-radius: 5px;
+}
+
+.fa-clipboard:hover::after {
+    content: ' click to copy';
+    font-family: Muli,Roboto,"Helvetica",Arial,sans-serif;
+    font-weight: 600;
+}
+
+.bid-car-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.bid-car-carousel {
+    height: 173px;
+    width: 230px;
+    position: relative;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+hr {
+    padding-top: 20px;
+    border-bottom: 1px lightgray solid;
+}
+
+#BidDetails {
+    display: flex;
+}
+
+.spaced-bid-details {
+    padding: 10px;
+    margin: 10px;
+    padding-right: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.main-bid::after {
+    content: '\f005';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: rgb(255, 208, 0);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.spaced-bid-details:hover::before {
+    content: '\f35d';
+    position: absolute;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    bottom: 5px;
+    right: 5px;
+}
