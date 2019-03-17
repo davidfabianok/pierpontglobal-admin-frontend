@@ -1,0 +1,11 @@
+.canNotify::after {
+    content: attr(data-notification);
+    border: 1px currentColor solid;
+    width: 21px;
+    height: 21px;
+    border-radius: 3px
+}
+
+.canNotify {
+    width: auto;
+}
